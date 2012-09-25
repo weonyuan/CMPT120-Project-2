@@ -9,11 +9,15 @@
     <title>Weon Y - Cube v0.2</title>
     <script type="text/javascript">
       var scoreChart = 0;
+      var north = true;
+      var south = true;
+      var west = true;
+      var east = true;
       
       //describes the North direction
       function btn_north_clicked() {
         alert("North.");
-        if (north = true) {
+        if (north == true) {
           scoreChart = scoreChart + 5;
           north = false;
         }
@@ -22,29 +26,32 @@
       //describes the South direction
       function btn_south_clicked() {
         alert("South.");
-        if (south = true) {
+        if (south == true) {
           scoreChart = scoreChart + 5;
+          south = false;
         }
       }
       
       //describes the West direction
       function btn_west_clicked() {
         alert("West.");
-        if (west = true) {
+        if (west == true) {
           scoreChart = scoreChart + 5;
+          west = false;
         }
       }
       
       //describes the East direction
       function btn_east_clicked() {
         alert("East.");
-        if (east = true) {
+        if (east == true) {
           scoreChart = scoreChart + 5;
+          east = false;
         }
       }
       
       //tells the current score
-      function score() {
+      function btn_scoreLog_clicked() {
         alert("Current score: " + scoreChart);
       }
     </script>
@@ -57,7 +64,7 @@
     <input type="button" value="South" onclick="btn_south_clicked();"/>
     <input type="button" value="West" onclick="btn_west_clicked();"/>
     <input type="button" value="East" onclick="btn_east_clicked();"/>
-    <input type="button" value="Score Chart" onclick="score();"/>
+    <input type="button" value="Score Chart" onclick="btn_scoreLog_clicked();"/>
     <br/>
     
     Need help? Click <a href="mailto:weon.yuan1@marist.edu">here</a>.
