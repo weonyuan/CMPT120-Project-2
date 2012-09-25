@@ -7,6 +7,11 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <meta name="author"             content="Weon Yuan Student" />
     <title>Weon Y - Cube v0.2</title>
+    <style>
+      body {
+        font-family: Tacoma, Arial, sans-serif;
+      }
+    </style>
     <script type="text/javascript">
       var scoreChart = 0;
       var north = true;
@@ -16,37 +21,37 @@
       
       //describes the North direction
       function btn_north_clicked() {
-        alert("North.");
-        if (north == true) {
-          scoreChart = scoreChart + 5;
-          north = false;
+        alert("The front door is locked. There appears to be a numpad on the door.");
+        if (north === true) {
+          scoreChart = scoreChart + 5;  //awards the player 5 points when button is clicked
+          north = false;    //changes var north to false, to award points to user once
         }
       }
       
       //describes the South direction
       function btn_south_clicked() {
-        alert("South.");
-        if (south == true) {
-          scoreChart = scoreChart + 5;
-          south = false;
+        alert("You are facing the south side of the room. There is a blank wall with no windows and there is a cot.");
+        if (south === true) {
+          scoreChart = scoreChart + 5;  //awards the player 5 points when button is clicked
+          south = false;    //changes var south to false, to award points to user once
         }
       }
       
       //describes the West direction
       function btn_west_clicked() {
-        alert("West.");
-        if (west == true) {
-          scoreChart = scoreChart + 5;
-          west = false;
+        alert("You are in a storage room. There is nothing here except for a letter taped on a wall.");
+        if (west === true) {
+          scoreChart = scoreChart + 5;  //awards the player 5 points when button is clicked
+          west = false;   //changes var west to false, to award points to user once
         }
       }
       
       //describes the East direction
       function btn_east_clicked() {
-        alert("East.");
-        if (east == true) {
-          scoreChart = scoreChart + 5;
-          east = false;
+        alert("You are inside a bathroom, with a shower, and a toilet. On the mirror, there appears to be an etching.");
+        if (east === true) {
+          scoreChart = scoreChart + 5;  //awards the player 5 points when button is clicked
+          east = false;   //changes var east to false, to award points to user once
         }
       }
       
@@ -57,7 +62,12 @@
     </script>
 
   <body>
-    <textarea>Hello World.</textarea>
+    
+    <h1>Cube v0.2</h1>
+    
+    <textarea rows="10" cols="40">You are enclosed in the middle of a white, cube room with no windows.
+There is a front door here.
+    </textarea>
     <br/>
     
     <input type="button" value="North" onclick="btn_north_clicked();"/>
@@ -67,6 +77,8 @@
     <input type="button" value="Score Chart" onclick="btn_scoreLog_clicked();"/>
     <br/>
     
-    Need help? Click <a href="mailto:weon.yuan1@marist.edu">here</a>.
+    <p>
+      Problem? Click <a href="mailto:weon.yuan1@marist.edu">here</a>.
+    </p>
   </body>
 </html> 
