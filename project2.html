@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+  <!-- Weon Yuan
+       September 17, 2012
+       Project 2 - Game v0.2 -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="author"             content="Weon Yuan Student" />
+    <title>Weon Y - Cube v0.2</title>
+    <script type="text/javascript">
+      var scoreChart = 0;
+      
+      //describes the North direction
+      function btn_north_clicked() {
+        alert("North.");
+        if (north = true) {
+          scoreChart = scoreChart + 5;
+          north = false;
+        }
+      }
+      
+      //describes the South direction
+      function btn_south_clicked() {
+        alert("South.");
+        if (south = true) {
+          scoreChart = scoreChart + 5;
+        }
+      }
+      
+      //describes the West direction
+      function btn_west_clicked() {
+        alert("West.");
+        if (west = true) {
+          scoreChart = scoreChart + 5;
+        }
+      }
+      
+      //describes the East direction
+      function btn_east_clicked() {
+        alert("East.");
+        if (east = true) {
+          scoreChart = scoreChart + 5;
+        }
+      }
+      
+      //tells the current score
+      function score() {
+        alert("Current score: " + scoreChart);
+      }
+    </script>
+
+  <body>
+    <textarea>Hello World.</textarea>
+    <br/>
+    
+    <input type="button" value="North" onclick="btn_north_clicked();"/>
+    <input type="button" value="South" onclick="btn_south_clicked();"/>
+    <input type="button" value="West" onclick="btn_west_clicked();"/>
+    <input type="button" value="East" onclick="btn_east_clicked();"/>
+    <input type="button" value="Score Chart" onclick="score();"/>
+    <br/>
+    
+    Need help? Click <a href="mailto:weon.yuan1@marist.edu">here</a>.
+  </body>
+</html> 
