@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+  <!-- Weon Yuan
+       September 27, 2012
+       Project 3 - Game v0.4 -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="author"             content="Weon Yuan Student" />
+    <title>Weon Y - Cube v0.4</title>
+    <style>
+      body {
+        font-family: Tacoma, Arial, sans-serif;
+      }
+    </style>
+    <script type="text/javascript">
+      var currentLocation = 0;
+      var north = "N";
+      var south = "S";
+      var west = "W";
+      var east = "E";
+      var invalidLocation = "You can't go this way.";
+      
+      //describes the direction
+      function btn_move(direction) {
+        if (direction === north || direction === "n") {
+          if (currentLocation == 5) {
+            currentLocation = 3;
+            updateDisplay("Location 3");
+          }
+            else if (currentLocation == 3) {
+              currentLocation = 0;
+              updateDisplay("Location 0");
+            }
+              else if (currentLocation == 0) {
+                currentLocation = 1;
+                updateDisplay("Location 1");
+              }
+                else {
+                  updateDisplay(invalidLocation);
+                }
+          //document.getElementById("btnNorth").disabled = true;
+          //document.getElementById("btnSouth").disabled = false;
+          //document.getElementById("btnWest").disabled = false;
+          //document.getElementById("btnEast").disabled = false;
+        }
+          else if (direction === south || direction === "s") {
+              if (currentLocation == 1) {
+                currentLocation = 0;
+                updateDisplay("Location 0");
+              }
+                else if (currentLocation == 0) {
+                  currentLocation = 3;
+                  updateDisplay("Location 3");
+                }
+                  else if (currentLocation == 3) {
+                    currentLocation = 5;
+                    updateDisplay("Location 5");
+                  }
+                    else {
+                      updateDisplay(invalidLocation);
+                    }
+            //document.getElementById("btnNorth").disabled = false;
+            //document.getElementById("btnSouth").disabled = true;
+            //document.getElementById("btnWest").disabled = false;
+            //document.getElementById("btnEast").disabled = false;
+          }
+            else if (direction === west || direction === "w") {
+              if (currentLocation == 6) {
+                currentLocation = 2;
+                updateDisplay("Location 2");
+              }
+                else if (currentLocation == 2) {
+                  currentLocation = 0;
+                  updateDisplay("Location 0");
+                }
+                  else if (currentLocation == 0) {
+                    currentLocation = 4;
+                    updateDisplay("Location 4");
+                  }
+                    else {
+                      updateDisplay(invalidLocation);
+                    }
+              //document.getElementById("btnNorth").disabled = true;
+              //document.getElementById("btnSouth").disabled = false;
+              //document.getElementById("btnWest").disabled = true;
+              //document.getElementById("btnEast").disabled = false;
+            }
+              else if (direction === east || direction === "e") { 
+                if (currentLocation == 4) {
+                  currentLocation = 0;
+                  updateDisplay("Location 0");
+                }
+                  else if (currentLocation == 0) {
+                    currentLocation = 2;
+                    updateDisplay("Location 2");
+                  }
+                    else if (currentLocation == 2) {
+                      currentLocation = 6;
+                      updateDisplay("Location 6");
+                    }
+                      else {
+                        updateDisplay(invalidLocation);
+                      }
+                //document.getElementById("btnNorth").disabled = false;
+                //document.getElementById("btnSouth").disabled = false;
+                //document.getElementById("btnWest").disabled = false;
+                //document.getElementById("btnEast").disabled = false;
+                
+              }     
+                else {
+                  updateDisplay("This command does not exist. Please use only the following commands: N, S, E, W, n, s, e, w.");
+                }
+      }
+      
+      function btn_go() {
+        btn_move(txtCommand.value);
+      }
+     
+     function updateDisplay(message) {
+        var message = message + " [" + currentLocation + "]";
+        var userInput = document.getElementById("taGame");
+        userInput.value = message + "\n\n" + userInput.value;
+      }
+    </script>
+
+  <body>
+    
+    <h1>Cube v0.4 (Project Three)</h1>
+    <p>A game based from the movie <em>Cube</em> that takes a twist from the Sushi perspective.</p>
+    
+    <textarea id="taGame" rows="10" cols="50">You are enclosed in the middle of a white, cube room with no windows. There is a front door here.</textarea>
+    <br/>
+    
+    <input type="button" id="btnNorth" value="North" onclick="btn_move(north);"/>
+    <input type="button" id="btnSouth" value="South" onclick="btn_move(south);"/>
+    <input type="button" id="btnWest" value="West" onclick="btn_move(west);"/>
+    <input type="button" id="btnEast" value="East" onclick="btn_move(east);"/>
+    <br/><br/>
+    
+    Enter a command <input type="text" id="txtCommand"/>
+    <input type="button" value="Go" onclick="btn_go();"/>
+    
+    <p>
+      Problem? Click <a href="mailto:weon.yuan1@marist.edu" target="_blank">here</a>.
+    </p>
+  </body>
+</html> 
