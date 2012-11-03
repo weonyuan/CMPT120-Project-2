@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+  <!-- Weon Yuan
+       October 26, 2012
+       Project 4 - Game v0.6 -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="author"             content="Weon Yuan Student" />
+    <title>Weon Y - Cube v0.6</title>
+    <style>
+      body {
+        font-family: Tacoma, Arial, sans-serif;
+      }
+    </style>
+    <script type="text/javascript" src="locations.js"></script>
+
+  <body>
+    <h1>Cube v0.6 (Project Four)</h1>
+    <p>A game that is piecing itself little by little to form a functioning, adventure game.</p>
+
+    <textarea id="taGame" rows="15" cols="70">You are enclosed in the center of a white cube room with no windows. There is an elevator in front of you.</textarea>
+    <br/>
+
+    <input type="button" id="btnNorth" value="North" onclick="btn_move(north);"/>
+    <input type="button" id="btnSouth" value="South" onclick="btn_move(south);"/>
+    <input type="button" id="btnWest" value="West" onclick="btn_move(west);"/>
+    <input type="button" id="btnEast" value="East" onclick="btn_move(east);"/>
+    <input type="button" value="Score Chart" onclick="btn_scoreLog();"/>
+    <input type="button" value="Help" onclick="btn_move('help');"/>
+    <br/><br/>
+
+    Enter your direction below <input type="text" id="txtCommand"/>
+    <input type="button" value="Go" onclick="btn_go();"/>
+
+    <p>
+      Problem? Click <a href="mailto:weon.yuan1@marist.edu" target="_blank">here</a>.
+    </p>
+
+    <p>
+      Cube is validated. Want proof? Click <a href="http://w3.org/validator" target="_blank">here</a>.
+    </p>
+  </body>
+</html>
