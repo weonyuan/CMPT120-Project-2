@@ -13,20 +13,21 @@
       }
     </style>
     <script type="text/javascript" src="locations.js"></script>
-
-  <body>
+  </head>
+  
+  <body onload="location_init();">
     <h1>Cube v0.6 (Project Four)</h1>
     <p>A game that is piecing itself little by little to form a functioning, adventure game.</p>
 
-    <textarea id="taGame" rows="15" cols="70">You are enclosed in the center of a white cube room with no windows. There is an elevator in front of you.</textarea>
+    <textarea id="taGame" rows="15" cols="70"></textarea>
     <br/>
 
-    <input type="button" id="btnNorth" value="North" onclick="btn_move(north);"/>
-    <input type="button" id="btnSouth" value="South" onclick="btn_move(south);"/>
-    <input type="button" id="btnWest" value="West" onclick="btn_move(west);"/>
-    <input type="button" id="btnEast" value="East" onclick="btn_move(east);"/>
+    <input type="button" id="btnNorth" value="North" onclick="btn_command(north);"/>
+    <input type="button" id="btnSouth" value="South" onclick="btn_command(south);"/>
+    <input type="button" id="btnWest" value="West" onclick="btn_command(west);"/>
+    <input type="button" id="btnEast" value="East" onclick="btn_command(east);"/>
     <input type="button" value="Score Chart" onclick="btn_scoreLog();"/>
-    <input type="button" value="Help" onclick="btn_move('help');"/>
+    <input type="button" value="Help" onclick="help();"/>
     <br/><br/>
 
     Enter your direction below <input type="text" id="txtCommand"/>
