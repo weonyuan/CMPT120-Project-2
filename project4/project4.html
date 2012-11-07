@@ -13,32 +13,38 @@
       }
     </style>
     <script type="text/javascript" src="locations.js"></script>
+    <script type="text/javascript" src="navigation.js"></script>
+    <script type="text/javascript" src="game.js"></script>
   </head>
   
-  <body onload="location_init();">
+  <body onload="init();">
     <h1>Cube v0.6 (Project Four)</h1>
-    <p>A game that is piecing itself little by little to form a functioning, adventure game.</p>
+    <p>A game that is piecing itself to form a functioning, adventure game.</p>
 
-    <textarea id="taGame" rows="15" cols="70"></textarea>
+    <textarea id="taGame" rows="15" cols="50"></textarea>
     <br/>
-
+    
     <input type="button" id="btnNorth" value="North" onclick="btn_command(north);"/>
     <input type="button" id="btnSouth" value="South" onclick="btn_command(south);"/>
     <input type="button" id="btnWest" value="West" onclick="btn_command(west);"/>
     <input type="button" id="btnEast" value="East" onclick="btn_command(east);"/>
-    <input type="button" value="Score Chart" onclick="btn_scoreLog();"/>
+    <input type="button" value="Inventory" onclick="btn_displayInventory();"/>
     <input type="button" value="Help" onclick="help();"/>
     <br/><br/>
 
-    Enter your direction below <input type="text" id="txtCommand"/>
+    Enter your command here <input type="text" id="txtCommand"/>
     <input type="button" value="Go" onclick="btn_go();"/>
-
+    <br/><br/>
+    
+    <p><strong>Game Map</strong></p>
+    <img src="map.jpg" width="534" height="390" alt="Game Map"/>
+    
     <p>
       Problem? Click <a href="mailto:weon.yuan1@marist.edu" target="_blank">here</a>.
     </p>
 
     <p>
-      Cube is validated. Want proof? Click <a href="http://w3.org/validator" target="_blank">here</a>.
+      Validate Cube <a href="http://w3.org/validator" target="_blank">here</a>.
     </p>
   </body>
 </html>
