@@ -155,7 +155,7 @@ function location_12() {
   currentLocation = 12;
   updateDisplay("You have entered a room where it is " +
                 "completely dark, and you cannot find " +
-                "your way out of here. To be continued. " +
+                "your way out of here. TO BE CONTINUED. " +
                 "Hit Refresh to restart the game.");
   document.getElementById("btnNorth").disabled = true;
   document.getElementById("btnSouth").disabled = true;
@@ -168,5 +168,9 @@ function location_trap_1() {
   currentLocation = 0;
   updateDisplay("You fell into a trap door, and you wound up " +
                         "back where you started.");
+  document.getElementById("btnNorth").disabled = false;
+  document.getElementById("btnSouth").disabled = false;
+  document.getElementById("btnWest").disabled = false;
+  document.getElementById("btnEast").disabled = false;
   location_init();
 }
