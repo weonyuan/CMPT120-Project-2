@@ -2,14 +2,6 @@
 //game.js
 //controls the game's logic, inventory, and global variables
 
-//global - navigation
-var currentLocation = 0;
-var north = "N";
-var south = "S";
-var west = "W";
-var east = "E";
-var invalidLocation = "You can't go this way.";
-
 //global - inventory
 var item_wrench = false;
 var item_capsule = false;
@@ -20,7 +12,7 @@ var moveCount = 0;
 
 function init() {
   //calls the starting function
-  location_0();
+  updateDisplay(locations_0);
 }
 
 function btn_displayInventory() {
@@ -37,24 +29,12 @@ function btn_displayInventory() {
   updateDisplay(msg);
 }
 
-function take_wrench() {
-  if ((currentLocation === 4) && (txtCommand.value == "take wrench")) {
-    updateDisplay("You take the wrench.");
-    item_wrench = true;
+function pickUpItem(item) {
+  if (location.hasItem()) {
+    //Do some stuff
+  } else {
+    alert("This location has no items to pick up!");
   }
-    else {
-      updateDisplay("You can't take this item.");
-    }
-}
-
-function take_capsule() {
-  if ((currentLocation === 10) && (txtCommand.value == "take capsule")) {
-    updateDisplay("You take the capsule.");
-    item_capsule = true;
-  }
-    else {
-      updateDisplay("You can't take this item.");
-    }
 }
 
 //prints message and location onto textarea

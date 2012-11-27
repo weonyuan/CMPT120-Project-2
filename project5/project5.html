@@ -15,6 +15,18 @@
     <script type="text/javascript" src="locations.js"></script>
     <script type="text/javascript" src="navigation.js"></script>
     <script type="text/javascript" src="game.js"></script>
+    <script>
+    function txtLastname_keypress(e)
+        {
+            // Check for the ENTER key (ASCII code 13). Ignore anything else.
+            if (e.which === 13)   // (e.which doesn't work in IE. I don't care.)
+            {
+                // If it was ENTER, then call the click event of the button
+                // whose id = "btnGo" just as if the user had clicked the button itself.
+                document.getElementById("btnGo").onclick();
+            }            
+        }
+    </script>
   </head>
   
   <body onload="init();">
@@ -28,16 +40,17 @@
     <input type="button" id="btnSouth" value="South" onclick="btn_command(south);"/>
     <input type="button" id="btnWest" value="West" onclick="btn_command(west);"/>
     <input type="button" id="btnEast" value="East" onclick="btn_command(east);"/>
+    <input type="button" value="Test" onclick="btn_command();"/>
     <input type="button" value="Inventory" onclick="btn_displayInventory();"/>
     <input type="button" value="Help" onclick="help();"/>
     <br/><br/>
 
-    Enter your command here <input type="text" id="txtCommand"/>
-    <input type="button" value="Go" onclick="btn_go();"/>
+    Enter your command here <input type="text" id="txtCommand" onkeypress="txtLastname_keypress(event);"/>
+    <input type="button" id="btnGo" value="Go" onclick="btn_go();"/>
     <br/><br/>
     
     <p><strong>Game Map</strong></p>
-    <img src="map.jpg" width="534" height="390" alt="Game Map"/>
+    <img src="map.jpg" width="518" height="351" alt="Game Map"/>
     
     <p>
       Problem? Click <a href="mailto:weon.yuan1@marist.edu" target="_blank">here</a>.

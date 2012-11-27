@@ -1,176 +1,147 @@
 //project 5 - game v.0.8
 //locations.js
 
-//physical locations
-function location_0() {
-  currentLocation = 0;
-  updateDisplay("You are enclosed in the center of a " +
-                "white cube room with no windows. " +
-                "There is an elevator in front of you.");
-  document.getElementById("btnNorth").disabled = false;
-  document.getElementById("btnSouth").disabled = false;
-  document.getElementById("btnWest").disabled = false;
-  document.getElementById("btnEast").disabled = false;
-}
-
-function location_1() {
-  currentLocation = 1;
-  updateDisplay("You are in an elevator. It is " +
-                "well-lit, but it does not seem " +
-                "to be functioning.");
-  document.getElementById("btnNorth").disabled = true;
-  document.getElementById("btnSouth").disabled = false;
-  document.getElementById("btnWest").disabled = true;
-  document.getElementById("btnEast").disabled = true;
-}
-
-function location_2() {
-  currentLocation = 2;
-  updateDisplay("You are standing in a dim hallway with an " +
-                "opening on your west and east.");
-  document.getElementById("btnNorth").disabled = true;
-  document.getElementById("btnSouth").disabled = true;
-  document.getElementById("btnWest").disabled = false;
-  document.getElementById("btnEast").disabled = false;
-}
-
-function location_3() {
-  currentLocation = 3;
-  updateDisplay("You are now in a small bedroom. There " +
-                "seems to be no windows here aside from " +
-                "a bed and a closet.");
-  document.getElementById("btnNorth").disabled = false;
-  document.getElementById("btnSouth").disabled = false;
-  document.getElementById("btnWest").disabled = true;
-  document.getElementById("btnEast").disabled = true;
-}
-
-function location_4() {
-  currentLocation = 4;
-  updateDisplay("You are in a storage room. There is " +
-                "an opening in front of you and a letter " +
-                "taped by the opening.");
-  if (!item_wrench) {
-    updateDisplay("There is a wrench on the ground.");
+function Location(_id, _name, _description, _item) {
+  //Attributes
+  this.id = _id;
+  this.name = _name;
+  this.description = _description;
+  this.item = _item;
+  
+  this.toString = function() {
+    var returnVal = "";
+    returnVal = this.description;
+    return returnVal;
   }
-    else {
-      updateDisplay("You notice a wrench mark on the ground.");
+  
+  /*this.hasItem = function() {
+    if (this.item) {
+      return true;
+    } else {
+      return false;
+      }
+  }*/
+}
+
+/*function Item(_id, _name, _description) {
+  //Attributes
+    this.id = _id;
+    this.name = _name;
+    this.description = _description;
+    
+  //Behaviors
+    this.toString = function() {
+      return this.name;
     }
-  document.getElementById("btnNorth").disabled = false;
-  document.getElementById("btnSouth").disabled = true;
-  document.getElementById("btnWest").disabled = true;
-  document.getElementById("btnEast").disabled = false;
-}
+}*/
 
-function location_5() {
-  currentLocation = 5;
-  updateDisplay("You are in a closet. It is completely " +
-                "dark and dusty. There is nothing stored " +
-                "here.");
-  document.getElementById("btnNorth").disabled = false;
-  document.getElementById("btnSouth").disabled = true;
-  document.getElementById("btnWest").disabled = true;
-  document.getElementById("btnEast").disabled = true;
-}
+//distinguish it by naming it "locations" than "location"
+var locations_0 = new Location();
+locations_0.id = 0;
+locations_0.name = "Cube room";
+locations_0.description = "You are enclosed in the center of a " +
+                          "white cube room with no windows. " +
+                          "There is an elevator in front of you.";
+locations_0.item = false;
 
-function location_6() {
-  currentLocation = 6;
-  updateDisplay("You are in a bathroom. There is a " +
-                "toilet, mirror, and shower in " +
-                "this room.");
-  document.getElementById("btnNorth").disabled = true;
-  document.getElementById("btnSouth").disabled = true;
-  document.getElementById("btnWest").disabled = false;
-  document.getElementById("btnEast").disabled = true;
-}  
+var locations_1 = new Location();
+locations_1.id = 1;
+locations_1.name = "Elevator";
+locations_1.description = "You are in an elevator. It is " +
+                          "well-lit, but it does not seem " +
+                          "to be functioning.";
+locations_1.item = false;
 
-function location_7() {
-  currentLocation = 7;
-  updateDisplay("You are in a dim room, with rooms on the west " +
-                "and east of you. You tried to decipher what " +
-                "is inside those rooms but failed, they are " +
-                "are completely pitch black.");
-  document.getElementById("btnNorth").disabled = true;
-  document.getElementById("btnSouth").disabled = false;
-  document.getElementById("btnWest").disabled = false;
-  document.getElementById("btnEast").disabled = false;
-} 
+var locations_2 = new Location();
+locations_2.id = 2;
+locations_2.name = "Dim hallway";
+locations_2.description = "You are standing in a dim hallway " +
+                          "with an opening on your west and " +
+                          "east.";
+locations_2.item = false;
 
-function location_8() {
-  currentLocation = 8;
-  updateDisplay("You enter a pitch-black room and suddenly " +
-                "the lights turn on, revealing a completely " +
-                "white room. There seems to be a motion " +
-                "sensor located on the ceiling, and a sign " +
-                "of a large arrow pointing to the east.");
-  document.getElementById("btnNorth").disabled = true;
-  document.getElementById("btnSouth").disabled = true;
-  document.getElementById("btnWest").disabled = false;
-  document.getElementById("btnEast").disabled = false;
-} 
+var locations_3 = new Location();
+locations_3.id = 3;
+locations_3.name = "Dim hallway";
+locations_3.description = "You are standing in a dim hallway " +
+                          "with an opening on your west and " +
+                          "east.";
+locations_3.item = false;
 
-function location_9() {
-  currentLocation = 9;
-  updateDisplay("You are in an intersection with a room " +
-                "located in each side. All of them look " +
-                "identical among each other.");
-  document.getElementById("btnNorth").disabled = false;
-  document.getElementById("btnSouth").disabled = false;
-  document.getElementById("btnWest").disabled = false;
-  document.getElementById("btnEast").disabled = false;
-}
+var locations_4 = new Location();
+locations_4.id = 4;
+locations_4.name = "Storage room";
+locations_4.description = "You are standing in a dim hallway " +
+                          "with an opening on your west and " +
+                          "east.";
+locations_4.item = true;
 
-function location_10() {
-  currentLocation = 10;
-  updateDisplay("You are in an office. There is a " +
-                "desk, chair, and a shelf of books " +
-                "that are utterly useless to you.");
-  if (!item_capsule) {
-    updateDisplay("There is a capsule on the desk.");
-  }
-    else {
-      updateDisplay("There is nothing but useless " +
-                    "papers on the desk.");
-    }
-  document.getElementById("btnNorth").disabled = false;
-  document.getElementById("btnSouth").disabled = true;
-  document.getElementById("btnWest").disabled = true;
-  document.getElementById("btnEast").disabled = true;
-}
+var locations_5 = new Location();
+locations_5.id = 5;
+locations_5.name = "Closet";
+locations_5.description = "You are in a closet. It is completely " +
+                          "dark and dusty. There is nothing stored " +
+                          "here.";
+locations_5.item = false;
 
-function location_11() {
-  currentLocation = 11;
-  updateDisplay("You are in the electrical room. There " +
-                "is the occasional buzzing sound here " +
-                "but the only power meter in this room " +
-                "is shut off. You wonder where the sound " +
-                "is coming from.");
-  document.getElementById("btnNorth").disabled = true;
-  document.getElementById("btnSouth").disabled = true;
-  document.getElementById("btnWest").disabled = false;
-  document.getElementById("btnEast").disabled = true;
-}
+var locations_6 = new Location();
+locations_6.id = 6;
+locations_6.name = "Bathroom";
+locations_6.description = "You are in a bathroom. There is a " +
+                          "toilet, mirror, and shower in " +
+                          "this room.";
+locations_6.item = false;
 
-function location_12() {
-  currentLocation = 12;
-  updateDisplay("You have entered a room where it is " +
-                "completely dark, and you cannot find " +
-                "your way out of here. TO BE CONTINUED. " +
-                "Hit Refresh to restart the game.");
-  document.getElementById("btnNorth").disabled = true;
-  document.getElementById("btnSouth").disabled = true;
-  document.getElementById("btnWest").disabled = true;
-  document.getElementById("btnEast").disabled = true;
-}
+var locations_7 = new Location();
+locations_7.id = 7;
+locations_7.name = "Opening";
+locations_7.description = "You are in a dim room, with rooms on the west " +
+                          "and east of you. You tried to decipher what " +
+                          "is inside those rooms but failed, they are " +
+                          "are completely pitch black.";
+locations_7.item = false;
 
-//fake locations
-function location_trap_1() {
-  currentLocation = 0;
-  updateDisplay("You fell into a trap door, and you wound up " +
-                        "back where you started.");
-  document.getElementById("btnNorth").disabled = false;
-  document.getElementById("btnSouth").disabled = false;
-  document.getElementById("btnWest").disabled = false;
-  document.getElementById("btnEast").disabled = false;
-  location_init();
-}
+var locations_8 = new Location();
+locations_8.id = 8;
+locations_8.name = "Dark room";
+locations_8.description = "You enter a pitch-black room and suddenly " +
+                          "the lights turn on, revealing a completely " +
+                          "white room. There seems to be a motion " +
+                          "sensor located on the ceiling, and a sign " +
+                          "of a large arrow pointing to the east.";
+locations_8.item = false;
+
+var locations_9 = new Location();
+locations_9.id = 9;
+locations_9.name = "Intersection";
+locations_9.description = "You are in an intersection with a room " +
+                          "located in each side. All of them look " +
+                          "identical among each other.";
+locations_9.item = false;
+
+var locations_10 = new Location();
+locations_10.id = 10;
+locations_10.name = "Office";
+locations_10.description =  "You are in an office. There is a " +
+                            "desk, chair, and a shelf of books " +
+                            "that are utterly useless to you.";
+locations_10.item = true;
+
+var locations_11 = new Location();
+locations_11.id = 11;
+locations_11.name = "Power room";
+locations_11.description =  "You are in the electrical room. There " +
+                            "is the occasional buzzing sound here " +
+                            "but the only power meter in this room " +
+                            "is shut off. You wonder where the sound " +
+                            "is coming from.";
+locations_11.item = false;
+
+var locations_12 = new Location();
+locations_12.id = 12;
+locations_12.name = "???";
+locations_12.description =  "You have entered a room where it is " +
+                            "completely dark, and you cannot find " +
+                            "your way out of here. TO BE CONTINUED. " +
+                            "Hit Refresh to restart the game.";
+locations_12.item = false;
