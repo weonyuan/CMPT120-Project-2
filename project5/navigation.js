@@ -89,6 +89,9 @@ function btn_command(action) {
   else if (action === "inventory") {
     btn_displayInventory();
   }
+  else if (action === "help") {
+    help();
+  }
 
   if (nextLocation >= 0) {
     updateDisplay(locations[nextLocation]);
@@ -115,7 +118,7 @@ function btn_command(action) {
        } else if (!locations[currentLocation].hasItem) {
             updateDisplay("This location has no items to pick up!");
          }
-    } else {
+    } else if (action !== "help" && action !== "inventory") {
          updateDisplay("I don't understand your command.");
          nextLocation = currentLocation;
       }
