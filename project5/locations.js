@@ -9,9 +9,7 @@ function Location(_id, _name, _description, _item) {
   this.item = _item;
   
   this.toString = function() {
-    var returnVal = "";
-    returnVal = this.description;
-    return returnVal;
+    return this.description;
   }
   
   /*this.hasItem = function() {
