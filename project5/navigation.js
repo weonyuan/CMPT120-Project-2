@@ -23,7 +23,7 @@ function btn_command(action) {
                               locations_10,
                               locations_11,
                               locations_12 );
-                              
+                                            
   var nav = new Array(/*     0   1   2   3 */
                       /*0*/  [1,  3,  4,  2],
                       /*1*/  [-1, 0, -1, -1],
@@ -32,7 +32,7 @@ function btn_command(action) {
                       /*4*/  [7, -1, -1,  0],
                       /*5*/  [3, -1, -1, -1],
                       /*6*/  [-1, -1, 2, -1],
-                      /*7*/  [-1, -1, 0,  8],
+                      /*7*/  [-1,  4, 0,  8],
                       /*8*/  [-1, -1, 7,  9],
                       /*9*/  [12, 10, 8, 11],
                       /*10*/ [9, -1, -1, -1],
@@ -50,29 +50,41 @@ function btn_command(action) {
                                     /*4*/  [0,  1,  1,  0],
                                     /*5*/  [0,  1,  1,  1],
                                     /*6*/  [1,  1,  0,  1],
-                                    /*7*/  [1,  1,  0,  0],
+                                    /*7*/  [1,  0,  0,  0],
                                     /*8*/  [1,  1,  0,  0],
                                     /*9*/  [0,  0,  0,  0],
                                     /*10*/ [0,  1,  1,  1],
                                     /*11*/ [1,  1,  0,  1],
-                                    /*12*/ [1,  0,  1,  1]
+                                    /*12*/ [1,  1,  1,  1]
                                     );
-  
-  if (action === "N" || action === "n" || action === "north") {
-    action = north;
-  }
-  else if (action === "S" || action === "s" || action === "south") {
-    action = south;
-  }
-  else if (action === "W" || action === "w" || action === "west") {
-    action = west;
-  }
-  else if (action === "E" || action === "e" || action === "east") {
-    action = east;
-  }
   
   var nextLocation = 0;
   nextLocation = nav[currentLocation][action];
+  
+  
+  if (action === "n" || action === "north") {
+    action = north;
+  }
+  else if (action === "s" || action === "south") {
+    action = south;
+  }
+  else if (action === "w" || action === "west") {
+    action = west;
+  }
+  else if (action === "e" || action === "east") {
+    action = east;
+  }
+  else if (action === "inventory") {
+    btn_displayInventory();
+  }
+
+  if (action === "take" && locations[currentLocation]) {
+    pickUpItem(items[currentLocation]);
+    locations[currentLocation].hasItem = false;
+  } else if (action === "take" && !locations[currentLocation]) {
+      updateDisplay("This location has no items to pick up!");
+    }
+
   if (nextLocation >= 0) {
     updateDisplay(locations[nextLocation]);
     currentLocation = nextLocation;
@@ -83,10 +95,13 @@ function btn_command(action) {
       if (btnDisable === 1) {
         document.getElementById(navButtons[i]).disabled = true;
       } else {
-        document.getElementById(navButtons[i]).disabled = false;
+          document.getElementById(navButtons[i]).disabled = false;
         }
     }
-  } else {
+  } else if (nextLocation === -1){
       updateDisplay("You can't go that way.");
-    }
+    } else {
+         return "I don't understand your command.";
+      }
+  currentLocation = nextLocation;
 }

@@ -2,40 +2,30 @@
 //game.js
 //controls the game's logic, inventory, and global variables
 
-//global - inventory
-var item_wrench = false;
-var item_capsule = false;
-
-//global - misc
-var scoreChart = 0;
-var moveCount = 0;
-
 function init() {
   //calls the starting function
   updateDisplay(locations_0);
 }
 
+//game items are stored in global array
+var items = new Array();
+items[0] = itemFlashlight;
+items[4] = itemWrench;
+items[5] = itemKey;
+items[10] = itemPowerCapsule;
+
+var inventory = new Array();
+
+//displays current inventory
 function btn_displayInventory() {
-  var msg = "Inventory: ";
-  if (item_wrench) {
-    msg = msg + "[Wrench]";
-  }
-  if (item_capsule) {
-    msg = msg + "[Capsule] ";
-  }
-  else if ((!item_wrench) && (!item_capsule)) {
-    msg = msg + "None";
-  }
+  var msg = "Inventory: " + inventory;
   updateDisplay(msg);
 }
 
 function pickUpItem(item) {
-  if (location.hasItem()) {
-    //Do some stuff
-  } else {
-    alert("This location has no items to pick up!");
+    inventory.push(items[currentLocation].name);
+    updateDisplay("Taken.");
   }
-}
 
 //prints message and location onto textarea
 function updateDisplay(message) {
@@ -46,6 +36,7 @@ function updateDisplay(message) {
 
 //takes String literal from command bar
 function btn_go() {
+  txtCommand.value = txtCommand.value.toLowerCase();
   btn_command(txtCommand.value);
 }
 
