@@ -9,7 +9,7 @@ function Location(_id, _name, _description, _hasItem) {
   this.hasItem = _hasItem;
   this.item = function() {
     if(this.hasItem) {
-      return items[currentLocation].description;
+      return items[nextLocation].description;
     } else {
       return "";
       }

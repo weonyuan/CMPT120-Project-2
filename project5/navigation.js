@@ -8,6 +8,7 @@ var north = 0;
 var south = 1;
 var west = 2;
 var east = 3;
+var nextLocation = 0;
 
 function btn_command(action) {
   var locations = new Array( locations_0,
@@ -40,7 +41,8 @@ function btn_command(action) {
                       /*12*/ [-1, 9, -1, -1]
                       );
   
-  var navButtons = new Array("btnNorth", "btnSouth", "btnWest", "btnEast");
+  var navButtons = new Array("btnNorth", "btnSouth",
+                              "btnWest", "btnEast");
                       
   var navButtons_switch = new Array(/*     0   1   2   3 */
                                     /*0*/  [0,  0,  0,  0],
@@ -58,9 +60,13 @@ function btn_command(action) {
                                     /*12*/ [1,  1,  1,  1]
                                     );
   
-  var nextLocation = 0;
+  if (nextLocation === undefined) {
+    nextLocation = currentLocation;
+  } else {
+    nextLocation = nextLocation;
+  }
   nextLocation = nav[currentLocation][action];
-  
+  nextLocation = nextLocation;
   
   if (action === "n" || action === "north") {
     action = north;
@@ -78,12 +84,7 @@ function btn_command(action) {
     btn_displayInventory();
   }
 
-  if (action === "take" && locations[currentLocation]) {
-    pickUpItem(items[currentLocation]);
-    locations[currentLocation].hasItem = false;
-  } else if (action === "take" && !locations[currentLocation]) {
-      updateDisplay("This location has no items to pick up!");
-    }
+  
 
   if (nextLocation >= 0) {
     updateDisplay(locations[nextLocation]);
@@ -98,10 +99,18 @@ function btn_command(action) {
           document.getElementById(navButtons[i]).disabled = false;
         }
     }
-  } else if (nextLocation === -1){
+  } else if (nextLocation === undefined && action <= 3) {
       updateDisplay("You can't go that way.");
+    }
+    else if (nextLocation === undefined && action === "take") {
+       if (locations[currentLocation].item) {
+          pickUpItem(items[currentLocation]);
+          locations[currentLocation].hasItem = false;
+       } else if (!locations[currentLocation].item) {
+            updateDisplay("This location has no items to pick up!");
+         }
     } else {
-         return "I don't understand your command.";
+         updateDisplay("I don't understand your command.");
+         nextLocation = currentLocation;
       }
-  currentLocation = nextLocation;
 }
