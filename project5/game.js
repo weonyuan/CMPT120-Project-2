@@ -45,5 +45,5 @@ function help() {
                 '"N, S, W, E, n, s, w, e, north, south, west, ' +
                 'east" in the command bar.' + '\n\n' + 
                 'You can also take certain items by typing ' +
-                '"take [item]" in the command bar.');
+                '"take" in the command bar if applicable.');
 }

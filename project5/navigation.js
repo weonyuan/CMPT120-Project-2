@@ -4,13 +4,14 @@
 
 //global - navigation
 var currentLocation = 0;
+var nextLocation = 0;
 var north = 0;
 var south = 1;
 var west = 2;
 var east = 3;
-var nextLocation = 0;
 
 function btn_command(action) {
+  //the array of location instances
   var locations = new Array( locations_0,
                               locations_1,
                               locations_2,
@@ -24,7 +25,8 @@ function btn_command(action) {
                               locations_10,
                               locations_11,
                               locations_12 );
-                                            
+                              
+  //the array of location navigation                                          
   var nav = new Array(/*     0   1   2   3 */
                       /*0*/  [1,  3,  4,  2],
                       /*1*/  [-1, 0, -1, -1],
@@ -43,7 +45,8 @@ function btn_command(action) {
   
   var navButtons = new Array("btnNorth", "btnSouth",
                               "btnWest", "btnEast");
-                      
+                              
+  //the array of dynamic navigation buttons                    
   var navButtons_switch = new Array(/*     0   1   2   3 */
                                     /*0*/  [0,  0,  0,  0],
                                     /*1*/  [1,  0,  1,  1],
@@ -60,14 +63,17 @@ function btn_command(action) {
                                     /*12*/ [1,  1,  1,  1]
                                     );
   
+  //in case the game cannot move due to nextLocation being undefined
   if (nextLocation === undefined) {
     nextLocation = currentLocation;
   } else {
     nextLocation = nextLocation;
   }
+
   nextLocation = nav[currentLocation][action];
   nextLocation = nextLocation;
   
+  //navigation logic
   if (action === "n" || action === "north") {
     action = north;
   }
@@ -84,12 +90,11 @@ function btn_command(action) {
     btn_displayInventory();
   }
 
-  
-
   if (nextLocation >= 0) {
     updateDisplay(locations[nextLocation]);
     currentLocation = nextLocation;
     
+    //controls the dynamic button disabling
     for (var i = 0; i < navButtons.length; i++) {
       var btnDisable = 0;
       btnDisable = navButtons_switch[currentLocation][i];
@@ -102,11 +107,12 @@ function btn_command(action) {
   } else if (nextLocation === undefined && action <= 3) {
       updateDisplay("You can't go that way.");
     }
+    //controls item pickup
     else if (nextLocation === undefined && action === "take") {
-       if (locations[currentLocation].item) {
+       if (locations[currentLocation].hasItem) {
           pickUpItem(items[currentLocation]);
           locations[currentLocation].hasItem = false;
-       } else if (!locations[currentLocation].item) {
+       } else if (!locations[currentLocation].hasItem) {
             updateDisplay("This location has no items to pick up!");
          }
     } else {

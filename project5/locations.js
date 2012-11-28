@@ -1,6 +1,7 @@
 //project 5 - game v.0.8
 //locations.js
 
+//Location prototype
 function Location(_id, _name, _description, _hasItem) {
   //Attributes
   this.id = _id;
@@ -22,35 +23,14 @@ function Location(_id, _name, _description, _hasItem) {
   }
 }
 
+//Item prototype
 function Item(_id, _name, _description) {
   this.id = _id;
   this.name = _name;
   this.description = _description;
 }
 
-var itemFlashlight = new Item();
-itemFlashlight.id = 0;
-itemFlashlight.name = "Flashlight";
-itemFlashlight.description = "There is a flashlight on the ground.";
-
-var itemWrench = new Item();
-itemWrench.id = 4;
-itemWrench.name = "Wrench";
-itemWrench.description = "There is a wrench on the ground.";
-
-var itemKey = new Item();
-itemKey.id = 5;
-itemKey.name = "Key";
-itemKey.description = "There is a key on the ground.";
-
-var itemPowerCapsule = new Item();
-itemPowerCapsule.id = 10;
-itemPowerCapsule.name = "Power capsule";
-itemPowerCapsule.description = "There is a power capsule on the table.";
-
-
-
-//distinguish it by naming it "locations" than "location"
+//Location instances
 var locations_0 = new Location();
 locations_0.id = 0;
 locations_0.name = "Cube room";
@@ -70,8 +50,9 @@ locations_1.hasItem = false;
 var locations_2 = new Location();
 locations_2.id = 2;
 locations_2.name = "Dim hallway";
-locations_2.description = "You are standing in a dim hallway with an " +
-                          "opening on your west and east.";
+locations_2.description = "You are standing in a dim hallway " + 
+                          "with an opening on your west and " +
+                          "east.";
 locations_2.hasItem = false;
 
 var locations_3 = new Location();
@@ -108,10 +89,11 @@ locations_6.hasItem = false;
 var locations_7 = new Location();
 locations_7.id = 7;
 locations_7.name = "Opening";
-locations_7.description = "You are in a dim room, with rooms on the west " +
-                          "and east of you. You tried to decipher what " +
-                          "is inside those rooms but failed, they are " +
-                          "are completely pitch black.";
+locations_7.description = "You are in a dim room, with rooms on " +
+                          "the west and east of you. You tried " +
+                          "to decipher what is inside those rooms " +
+                          "but failed, they are completely pitch "+
+                          "black.";
 locations_7.hasItem = false;
 
 var locations_8 = new Location();
@@ -143,11 +125,11 @@ locations_10.hasItem = true;
 var locations_11 = new Location();
 locations_11.id = 11;
 locations_11.name = "Power room";
-locations_11.description =  "You are in the electrical room. There " +
-                            "is the occasional buzzing sound here " +
-                            "but the only power meter in this room " +
-                            "is shut off. You wonder where the sound " +
-                            "is coming from.";
+locations_11.description =  "You are in the electrical room. " +
+                            "There is the occasional buzzing " +
+                            "sound here but the only power meter " +
+                            "in this room is shut off. You wonder " +
+                            "where the sound is coming from.";
 locations_11.hasItem = false;
 
 var locations_12 = new Location();
@@ -155,6 +137,28 @@ locations_12.id = 12;
 locations_12.name = "???";
 locations_12.description =  "You have entered a room where it is " +
                             "completely dark, and you cannot find " +
-                            "your way out of here. TO BE CONTINUED. " +
-                            "Hit Refresh to restart the game.";
+                            "your way out of here. TO BE " +
+                            "CONTINUED. Hit Refresh to restart" +
+                            "the game.";
 locations_12.hasItem = false;
+
+//Item instances
+var itemFlashlight = new Item();
+itemFlashlight.id = 0;
+itemFlashlight.name = "Flashlight";
+itemFlashlight.description = "There is a flashlight on the ground.";
+
+var itemWrench = new Item();
+itemWrench.id = 4;
+itemWrench.name = "Wrench";
+itemWrench.description = "There is a wrench on the ground.";
+
+var itemKey = new Item();
+itemKey.id = 5;
+itemKey.name = "Key";
+itemKey.description = "There is a key on the ground.";
+
+var itemPowerCapsule = new Item();
+itemPowerCapsule.id = 10;
+itemPowerCapsule.name = "Power capsule";
+itemPowerCapsule.description = "There is a power capsule on the table.";
