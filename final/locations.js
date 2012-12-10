@@ -100,11 +100,11 @@ locations_7.hasItem = false;
 var locations_8 = new Location();
 locations_8.id = 8;
 locations_8.name = "Dark room";
-locations_8.description = "You enter a pitch-black room and suddenly " +
-                          "the lights turn on, revealing a completely " +
-                          "white room. There seems to be a motion " +
-                          "sensor located on the ceiling, and a sign " +
-                          "of a large arrow pointing to the east.";
+locations_8.description = "You enter a pitch-black room and you can " +
+                          "make out with your flashlight that the " +
+                          "room is completely empty and white. " +
+                          "There is a sign of a large arrow " +
+                          "pointing to the east.";
 locations_8.hasItem = false;
 
 var locations_9 = new Location();

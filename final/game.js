@@ -1,4 +1,4 @@
-//project 5 - game v.0.8
+//final project - game v.1.0
 //game.js
 //controls the game's logic, inventory, and global variables
 
@@ -26,7 +26,7 @@ function btn_displayInventory() {
 
 function pickUpItem(item) {
     inventory.push(items[currentLocation].name);
-    updateDisplay("Taken.");
+    updateDisplay("Taken " + items[currentLocation].name + ".");
     items[currentLocation].isTaken = true;
   }
 

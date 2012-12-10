@@ -118,6 +118,5 @@ function btn_command(action) {
      }
   } else {
       updateDisplay("I don't understand your command.");
-      nextLocation = currentLocation;
     }
 }
