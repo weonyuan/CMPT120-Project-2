@@ -55,6 +55,7 @@ function itemCheck(nextLocation) {
           updateDisplay(locations[nextLocation]);
           updateDisplay("Your final score is " + scoreChart +
                         ".");
+          currentLocation = nextLocation;
         } else {
             updateDisplay("You attempted to go into the room " +
                           "but realized that you're still missing " +
